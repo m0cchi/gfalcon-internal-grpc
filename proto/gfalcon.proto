@@ -1,0 +1,27 @@
+syntax = 'proto3';
+
+service Gfalcon {
+  rpc SignIn(SignInRequest) returns (SignInResponse) {};
+  rpc Check(CheckRequest) returns (CheckResponse) {};
+}
+
+message SignInRequest {
+  string team = 1;
+  string id = 2;
+  string password = 3;
+}
+
+message SignInResponse {
+  bool ok = 1;
+  uint32 iid = 2;
+  string session = 3;
+}
+
+message CheckRequest {
+  uint32 iid = 1;
+  string session = 2;
+}
+
+message CheckResponse {
+  bool ok = 1;
+}
