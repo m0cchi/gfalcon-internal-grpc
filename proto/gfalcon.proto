@@ -2,7 +2,7 @@ syntax = 'proto3';
 
 service Gfalcon {
   rpc SignIn(SignInRequest) returns (SignInResponse) {};
-  rpc Check(CheckRequest) returns (CheckResponse) {};
+  rpc Validate(ValidateRequest) returns (ValidateResponse) {};
 }
 
 message SignInRequest {
@@ -17,11 +17,11 @@ message SignInResponse {
   string session = 3;
 }
 
-message CheckRequest {
+message ValidateRequest {
   uint32 iid = 1;
   string session = 2;
 }
 
-message CheckResponse {
+message ValidateResponse {
   bool ok = 1;
 }

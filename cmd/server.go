@@ -44,7 +44,7 @@ func (s *gfalcon) SignIn(ctx context.Context, req *proto.SignInRequest) (*proto.
 	return res, nil
 }
 
-func (s *gfalcon) Check(ctx context.Context, req *proto.CheckRequest) (*proto.CheckResponse, error) {
+func (s *gfalcon) Validate(ctx context.Context, req *proto.ValidateRequest) (*proto.ValidateResponse, error) {
 	session, err := model.GetSession(db, req.Iid, req.Session)
 	if err != nil {
 		return nil, err
@@ -53,7 +53,7 @@ func (s *gfalcon) Check(ctx context.Context, req *proto.CheckRequest) (*proto.Ch
 		return nil, err
 	}
 
-	res := &proto.CheckResponse{
+	res := &proto.ValidateResponse{
 		Ok: true,
 	}
 	return res, nil
